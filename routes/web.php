@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/home');
+
+Route::get('/home', 'Front\HomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('back')->group(function () {
+
+    Route::redirect('/', '/back/dashboard');
+
+    Route::get('/dashboard', 'Back\DashboardController@index');
+    
+});
