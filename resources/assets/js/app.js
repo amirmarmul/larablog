@@ -5,3 +5,16 @@
  */
 
 require('./bootstrap');
+
+
+(function() {
+    /**
+     * Initialize datatable
+     */
+    $('.datatable').DataTable({
+        processing: true,
+        responsive: true,
+        deferRender: true,
+    });
+
+})();

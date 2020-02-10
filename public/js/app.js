@@ -40968,6 +40968,17 @@ module.exports = g;
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js");
 
+(function () {
+  /**
+   * Initialize datatable
+   */
+  $('.datatable').DataTable({
+    processing: true,
+    responsive: true,
+    deferRender: true
+  });
+})();
+
 /***/ }),
 
 /***/ "./resources/assets/js/bootstrap.js":
@@ -41012,8 +41023,8 @@ __webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/amirmarmul/dev/blog/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /Users/amirmarmul/dev/blog/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! /Users/amirmarmul/dev/larablog/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/amirmarmul/dev/larablog/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

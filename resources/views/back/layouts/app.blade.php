@@ -42,7 +42,7 @@
                         <a class="nav-link" href="#">{{ __('Tags') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Users') }}</a>
+                        <a class="nav-link" href="/back/users">{{ __('Users') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ __('Settings') }}</a>

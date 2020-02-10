@@ -23,4 +23,6 @@ Route::prefix('back')->group(function () {
 
     Route::get('/dashboard', 'Back\DashboardController@index');
     
+    Route::get('users/datatable', 'Back\UserController@datatable');
+    Route::resource('users', 'Back\UserController');
 });
