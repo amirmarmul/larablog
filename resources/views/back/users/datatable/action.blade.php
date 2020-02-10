@@ -2,7 +2,7 @@
     <a class="btn btn-outline-primary" href="/back/users/{{ $id }}">{{ __('Show') }}</a>
     <a class="btn btn-outline-primary" href="/back/users/{{ $id }}/edit">{{ __('Edit') }}</a>
     <a class="btn btn-outline-primary" href="/back/users/{{ $id }}"
-        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $id }}').submit();">
+        onclick="event.preventDefault(); if (!confirm('Are you sure?')) {return};  document.getElementById('delete-form-{{ $id }}').submit();">
         {{ __('Delete') }}
     </a>
 </div>
