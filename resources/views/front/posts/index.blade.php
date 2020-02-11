@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', 'Posts')
+
 @section('content')
 @foreach ($posts as $post)
     <div class="blog-post">

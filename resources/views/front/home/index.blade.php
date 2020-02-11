@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', 'Home')
+
 @section('content')
 <div class="flex-center position-ref full-height">
     <div class="content">

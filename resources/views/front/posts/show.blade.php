@@ -1,5 +1,7 @@
 @extends('front.layouts.app')
 
+@section('title', $post->title)
+
 @section('content')
 <div class="blog-post">
     <h2 class="blog-post-title">{{ $post->title }}</h2>
