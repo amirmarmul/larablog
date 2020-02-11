@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class PostController extends Controller
 {
@@ -15,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('back.posts.index');
     }
 
     /**
@@ -25,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.posts.create');
     }
 
     /**
@@ -36,7 +38,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|unique:posts',
+            'slug' => 'required',
+            'content' => 'nullable',
+            'status' => 'required',
+        ]); 
+        
+        $post = Post::create([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'content' => $request->content,
+            'status' => $request->status,
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return back()->with(['message' => 'Post has been added successfully.']);
     }
 
     /**
@@ -47,7 +64,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('back.posts.show', compact('post'));
     }
 
     /**
@@ -58,7 +75,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('back.posts.edit', compact('post'));
     }
 
     /**
@@ -70,7 +87,23 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => "required|unique:posts,title,{$post->id}",
+            'slug' => 'required',
+            'content' => 'nullable',
+            'status' => 'required',
+        ]); 
+        
+        $post->fill([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'content' => $request->content,
+            'status' => $request->status,
+        ]);
+
+        $post->save();
+
+        return back()->with(['message' => 'Post has been updated successfully.']);
     }
 
     /**
@@ -81,6 +114,19 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return back()->with(['message' => 'Post has been deleted successfully.']);
+    }
+
+    /**
+     * Display the all resource as datatable ajax data source.
+     *
+     */
+    public function datatable()
+    {
+        return DataTables::of(Post::query())
+            ->addColumn('action', 'back.posts.datatable.action')
+            ->make();
     }
 }

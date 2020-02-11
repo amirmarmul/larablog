@@ -25,4 +25,7 @@ Route::prefix('back')->group(function () {
     
     Route::get('users/datatable', 'Back\UserController@datatable');
     Route::resource('users', 'Back\UserController');
+
+    Route::get('posts/datatable', 'Back\PostController@datatable');
+    Route::resource('posts', 'Back\PostController');
 });

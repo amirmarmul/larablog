@@ -36,7 +36,7 @@
                         <a class="nav-link {{ Request::is('back/dashboard*') ? 'active' : '' }}" href="/back/dashboard">{{ __('Dashboard') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Posts') }}</a>
+                        <a class="nav-link {{ Request::is('back/posts*') ? 'active' : '' }}" href="/back/posts">{{ __('Posts') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ __('Tags') }}</a>
@@ -74,6 +74,7 @@
 
     <main class="py-4">
         <div class="container">
+            @include('back.layouts.alert')
             @yield('content')
         </div>
     </main>

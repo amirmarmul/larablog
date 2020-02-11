@@ -40977,6 +40977,14 @@ __webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js");
     responsive: true,
     deferRender: true
   });
+  /**
+   * Initialize select2
+   */
+
+  $('.select2').select2({
+    theme: 'bootstrap',
+    width: '100%'
+  });
 })();
 
 /***/ }),
