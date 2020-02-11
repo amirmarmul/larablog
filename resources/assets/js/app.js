@@ -7,6 +7,9 @@
 require('./bootstrap');
 
 
+/**
+ * Load all vendor script
+ */
 (function() {
     /**
      * Initialize datatable

@@ -40967,6 +40967,10 @@ module.exports = g;
  * building robust, powerful web applications using Vue and Laravel.
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js");
+/**
+ * Load all vendor script
+ */
+
 
 (function () {
   /**
