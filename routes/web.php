@@ -15,6 +15,10 @@ Route::redirect('/', '/home');
 
 Route::get('/home', 'Front\HomeController@index');
 
+Route::get('/posts', 'Front\PostController@index');
+
+Route::get('/posts/{post}', 'Front\PostController@show');
+
 Auth::routes();
 
 Route::prefix('back')->group(function () {

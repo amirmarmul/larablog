@@ -70,8 +70,27 @@
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                {{ config('app.name') }}
+            </a>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('home*') ? 'active' : '' }}" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('posts*') ? 'active' : '' }}" href="/posts">Posts</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <main class="py-4">
-        @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
     </main>
 </body>
 </html>

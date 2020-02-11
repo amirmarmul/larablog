@@ -24,4 +24,20 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * 
+     */
+    public function scopeDraft($query)
+    {
+        $query->where('status', 'draft');
+    }
+
+    /**
+     * 
+     */
+    public function scopePublished($query)
+    {
+        $query->where('status', 'published');
+    }
 }
