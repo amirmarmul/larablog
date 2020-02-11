@@ -21,7 +21,7 @@ Route::get('/posts/{post}', 'Front\PostController@show');
 
 Auth::routes();
 
-Route::prefix('back')->group(function () {
+Route::middleware('auth')->prefix('back')->group(function () {
 
     Route::redirect('/', '/back/dashboard');
 
