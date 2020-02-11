@@ -17,8 +17,11 @@ class PostController extends Controller
         return view('front.posts.index', compact('posts'));
     }
 
-    public function show(Post $post)
+    public function show($slug)
     {
+        $post = Post::where('slug', $slug)
+            ->firstOrFail();
+
         return view('front.posts.show', compact('post')); 
     }
 }

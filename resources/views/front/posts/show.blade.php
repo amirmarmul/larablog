@@ -3,10 +3,14 @@
 @section('title', $post->title)
 
 @section('content')
-<div class="blog-post">
-    <h2 class="blog-post-title">{{ $post->title }}</h2>
-    <p class="blog-post-meta">{{ $post->created_at->diffForHumans() }} by {{ $post->user->name }}</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4 font-italic">{{ $post->title }}</h1>
+        <p class="lead my-3">by {{ $post->user->name }}</p>
+    </div>
+</div>
 
-    <p>{{ $post->content }}</p>
+<div class="blog-post">
+    {!! $post->content !!}
 </div>
 @endsection
