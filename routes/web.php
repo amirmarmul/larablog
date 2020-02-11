@@ -32,4 +32,7 @@ Route::middleware('auth')->prefix('back')->group(function () {
 
     Route::get('posts/datatable', 'Back\PostController@datatable');
     Route::resource('posts', 'Back\PostController');
+
+    Route::get('tags/datatable', 'Back\TagController@datatable');
+    Route::resource('tags', 'Back\TagController')->except('show');
 });

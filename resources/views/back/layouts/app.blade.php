@@ -39,7 +39,7 @@
                         <a class="nav-link {{ Request::is('back/posts*') ? 'active' : '' }}" href="/back/posts">{{ __('Posts') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Tags') }}</a>
+                        <a class="nav-link {{ Request::is('back/tags*') ? 'active' : '' }}" href="/back/tags">{{ __('Tags') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('back/users*') ? 'active' : '' }}" href="/back/users">{{ __('Users') }}</a>
