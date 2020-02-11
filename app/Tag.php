@@ -13,4 +13,12 @@ class Tag extends Model
         'name',
         'slug',
     ];
+
+    /**
+     * 
+     */
+    public function posts()
+    {
+        return $this->morphedByMany(Post::class, 'taggable');
+    }
 }
