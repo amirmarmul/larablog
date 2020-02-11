@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
@@ -27,7 +28,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('back.posts.create');
+        $tags = Tag::orderBy('name')
+            ->get();
+
+        return view('back.posts.create', compact('tags'));
     }
 
     /**
@@ -41,6 +45,8 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|unique:posts',
             'slug' => 'required',
+            'tags' => 'required|array',
+            'tags.*' => 'exists:tags,id',
             'content' => 'nullable',
             'status' => 'required',
         ]); 
@@ -52,6 +58,10 @@ class PostController extends Controller
             'status' => $request->status,
             'user_id' => Auth::user()->id,
         ]);
+
+        foreach ($request->tags as $tag) {
+            $post->tags()->attach($tag);
+        }
 
         return back()->with(['message' => 'Post has been added successfully.']);
     }
@@ -75,7 +85,14 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('back.posts.edit', compact('post'));
+        $tags = Tag::orderBy('name')
+            ->get();
+            
+        $postTags = $post->tags
+            ->pluck('id')
+            ->toArray();
+
+        return view('back.posts.edit', compact('post', 'tags', 'postTags'));
     }
 
     /**
@@ -90,9 +107,13 @@ class PostController extends Controller
         $request->validate([
             'title' => "required|unique:posts,title,{$post->id}",
             'slug' => 'required',
+            'tags' => 'required|array',
+            'tags.*' => 'exists:tags,id',
             'content' => 'nullable',
             'status' => 'required',
         ]); 
+
+        $post->tags()->detach();
         
         $post->fill([
             'title' => $request->title,
@@ -100,6 +121,10 @@ class PostController extends Controller
             'content' => $request->content,
             'status' => $request->status,
         ]);
+
+        foreach ($request->tags as $tag) {
+            $post->tags()->attach($tag);
+        }
 
         $post->save();
 

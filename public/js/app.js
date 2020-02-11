@@ -40982,8 +40982,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js");
    */
 
   $('.select2').select2({
-    theme: 'bootstrap',
-    width: '100%'
+    theme: 'bootstrap4',
+    width: 'style'
   });
 })();
 

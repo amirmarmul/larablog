@@ -29,11 +29,29 @@
 
             <div class="form-group">
                 <label>{{ __('Status') }}</label>
-                <select class="form-control select2 @error('status') is-invalid @enderror" name="status">
-                    <option {{ $post->status == 'draft' ? 'selected' : '' }} value="draft">Draft</option>
-                    <option {{ $post->status == 'published' ? 'selected' : '' }} value="published">Published</option>
+                <select class="form-control select2 @error('status') is-invalid @enderror" data-placeholder="{{ __('Status') }}" name="status">
+                    <option></option>
+                    <option 
+                        {{ $post->status == 'draft' ? 'selected' : '' }} 
+                        value="draft">Draft</option>
+                    <option 
+                        {{ $post->status == 'published' ? 'selected' : '' }} 
+                        value="published">Published</option>
                 </select>
                 @error('status') <div class="invalid-feedback">{{ $message }}</div> @enderror
+            </div>
+
+            <div class="form-group">
+                <label>{{ __('Tags') }}</label>
+                <select class="form-control select2 @error('tags') is-invalid @enderror" data-placeholder="{{ __('Tags') }}" name="tags[]" multiple>
+                    <option></option>
+                    @foreach ($tags as $tag)
+                        <option 
+                            {{ in_array($tag->id, $postTags) ? 'selected' : '' }}
+                            value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    @endforeach
+                </select>
+                @error('tags') <div class="invalid-feedback">{{ $message }}</div> @enderror
             </div>
 
             <div class="form-group">
