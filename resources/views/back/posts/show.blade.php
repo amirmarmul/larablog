@@ -3,7 +3,7 @@
 @section('content')
 <h3>{{ $post->title }}</h3>
 
-<div class="card">
+<div class="card mb-4">
     <div class="card-body">
         <div class="form-group">
             <label>{{ __('Title') }}</label>
@@ -31,7 +31,6 @@
         </div>
     </div>
 </div>
-<br>
 
 <h3>Tags</h3>
 <div class="card">

@@ -1,7 +1,7 @@
 @extends('back.layouts.app')
 
 @section('content')
-<div class="row">
+<div class="row mb-4">
     <div class="col-md-3">
         <div class="card">
             <div class="card-header">Users</div>
@@ -35,7 +35,6 @@
         </div>
     </div>
 </div>
-<br>
 
 <div class="card">
     <div class="card-header">Welcome, {{ Auth::user()->name }}</div>
