@@ -154,4 +154,14 @@ class PostController extends Controller
             ->addColumn('action', 'back.posts.datatable.action')
             ->make();
     }
+
+    /**
+     * Display the all resource as datatable ajax data source given Post.
+     *
+     */
+    public function tags(Post $post)
+    {
+        return DataTables::of($post->tags())
+            ->make();
+    }
 }

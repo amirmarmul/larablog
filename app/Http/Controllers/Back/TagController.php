@@ -51,6 +51,17 @@ class TagController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Tag  $tag
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Tag $tag)
+    {
+        return view('back.tags.show', compact('tag'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Tag  $tag
@@ -106,6 +117,16 @@ class TagController extends Controller
     {
         return DataTables::of(Tag::query())
             ->addColumn('action', 'back.tags.datatable.action')
+            ->make();
+    }
+
+    /**
+     * Display the all resource as datatable ajax data source given Tag.
+     *
+     */
+    public function posts(Tag $tag)
+    {
+        return DataTables::of($tag->posts())
             ->make();
     }
 }

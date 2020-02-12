@@ -31,4 +31,21 @@
         </div>
     </div>
 </div>
+<br>
+
+<h3>Tags</h3>
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered table-striped datatable" data-ajax="/back/posts/{{ $post->id }}/tags">
+            <thead>
+                <th data-data="id">{{ __('ID') }}</th>
+                <th data-data="name">{{ __('Name') }}</th>
+                <th data-data="slug">{{ __('Slug') }}</th>
+                <th data-data="created_at">{{ __('Created At') }}</th>
+                <th data-data="updated_at">{{ __('Updated At') }}</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
 @endsection

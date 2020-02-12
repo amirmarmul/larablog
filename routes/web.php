@@ -31,8 +31,10 @@ Route::middleware('auth')->prefix('back')->group(function () {
     Route::resource('users', 'Back\UserController');
 
     Route::get('posts/datatable', 'Back\PostController@datatable');
+    Route::get('posts/{post}/tags', 'Back\PostController@tags');
     Route::resource('posts', 'Back\PostController');
 
     Route::get('tags/datatable', 'Back\TagController@datatable');
-    Route::resource('tags', 'Back\TagController')->except('show');
+    Route::get('tags/{tag}/posts', 'Back\TagController@posts');
+    Route::resource('tags', 'Back\TagController');
 });
