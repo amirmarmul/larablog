@@ -15,4 +15,29 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum officia harum qu
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse deleniti, eaque, molestias eveniet eius soluta dolor neque earum deserunt, repellendus a illo culpa odio quas ducimus quisquam at repudiandae? Ipsam?</p>
 
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, ex! Tenetur, doloremque. Expedita quis vitae, quasi consectetur sunt minus adipisci rerum? Dolores quos fugiat illum totam quo laudantium optio suscipit!</p>
+
+<div class="latest-post">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Latest Posts</h2>
+        </div>
+    </div>
+    <div class="row">
+        @foreach($latestPosts as $post)
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="blog-post">
+                            <h4 class="blog-post-title">
+                                <a class="text-muted" href="/posts/{{ $post->slug }}">{{ $post->title }}</a>
+                            </h4>
+                            <p>{{ $post->excerpt }}</p>
+                            <a href="/posts/{{ $post->slug }}" class="btn btn-outline-secondary">{{ __('Read more ...') }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
 @endsection
