@@ -10,7 +10,7 @@ This app is a simple blog app build using Laravel Framework.
 - Settings management
 
 ## Screenshot
-Please see [SCREENSHOOT](SCREENSHOT.md) for details.
+Please see [SCREENSHOT](SCREENSHOT.md) for details.
 
 ## Contributing
 
