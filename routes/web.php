@@ -39,4 +39,6 @@ Route::middleware('auth')->prefix('back')->group(function () {
     Route::get('tags/datatable', 'Back\TagController@datatable');
     Route::get('tags/{tag}/posts', 'Back\TagController@posts');
     Route::resource('tags', 'Back\TagController');
+
+    Route::resource('settings', 'Back\SettingController')->only(['index', 'update']);
 });

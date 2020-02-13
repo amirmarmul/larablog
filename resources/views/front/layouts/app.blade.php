@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Blank') || {{ config('app.name') }}</title>
+    <title>@yield('title', 'Blank') || {{ $setting->app_name }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -73,15 +73,15 @@
     <nav class="navbar navbar-expand-md navbar-light">
         <div class="container">
             <a class="navbar-brand" href="/">
-                {{ config('app.name') }}
+                {{ $setting->app_name }}
             </a>
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('home*') ? 'active' : '' }}" href="/home">Home</a>
+                    <a class="nav-link {{ Request::is('home*') ? 'active' : '' }}" href="/home">{{ __('Home') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('posts*') ? 'active' : '' }}" href="/posts">Posts</a>
+                    <a class="nav-link {{ Request::is('posts*') ? 'active' : '' }}" href="/posts">{{ __('Posts') }}</a>
                 </li>
             </ul>
         </div>

@@ -1,11 +1,11 @@
 @extends('front.layouts.app')
 
-@section('title', 'Home')
+@section('title', __('Home'))
 
 @section('content')
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4 font-italic">Your Name's personal site</h1>
+        <h1 class="display-4 font-italic">Welcome back</h1>
         <p class="lead my-3">stay hungry, stay creative</p>
     </div>
 </div>

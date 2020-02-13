@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', 'Posts')
+@section('title', __('Posts'))
 
 @section('content')
 @foreach ($posts as $post)

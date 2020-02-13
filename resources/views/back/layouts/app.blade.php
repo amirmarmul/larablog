@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $setting->app_name }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -45,7 +45,7 @@
                         <a class="nav-link {{ Request::is('back/users*') ? 'active' : '' }}" href="/back/users">{{ __('Users') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Settings') }}</a>
+                        <a class="nav-link {{ Request::is('back/settings*') ? 'active' : '' }}" href="/back/settings">{{ __('Settings') }}</a>
                     </li>
                 </ul>
 
