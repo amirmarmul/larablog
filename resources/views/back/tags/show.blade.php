@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<h3>Posts</h3>
+<h3>{{ __('Posts') }}</h3>
 <div class="card">
     <div class="card-body">
         <table class="table table-bordered table-striped datatable" data-ajax="/back/tags/{{ $tag->id }}/posts">

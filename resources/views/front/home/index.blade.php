@@ -19,7 +19,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse deleniti, eaque, 
 <div class="latest-post">
     <div class="row">
         <div class="col-md-12">
-            <h2>Latest Posts</h2>
+            <h2>{{ __('Latest Posts') }}</h2>
         </div>
     </div>
     <div class="row">
