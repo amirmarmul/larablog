@@ -40,8 +40,25 @@ class User extends Authenticatable
     /**
      * 
      */
+    protected $appends = [
+        'gravatar',
+    ];
+
+    /**
+     * 
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    /**
+     * 
+     */
+    public function getGravatarAttribute()
+    {
+        $email = md5(strtolower(trim($this->email)));
+
+        return "http://www.gravatar.com/avatar/{$email}?s=60&r=pg";
     }
 }

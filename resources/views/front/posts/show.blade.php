@@ -17,4 +17,17 @@
 <div class="blog-post">
     {!! $post->content !!}
 </div>
+
+<div class="blog-author mt-4">
+    <h4>{{ __('Author') }}</h4>
+    <div class="blog-author-box">
+        <div class="blog-author-img">
+            <img src="{{ $post->user->gravatar }}" alt="avatar">
+        </div>
+        <div class="blog-author-content">
+            <h6>{{ $post->user->name }}</h6>
+            <p>{{ $post->user->email }}</p>
+        </div>
+    </div>
+</div>
 @endsection

@@ -12159,3 +12159,42 @@ select.is-valid ~ .select2-container--bootstrap4 .select2-selection {
   background-color: #343a40;
 }
 
+.blog-author-box {
+  padding: 40px;
+  background: #fafafa;
+  display: -moz-flex;
+  display: flex;
+}
+
+.blog-author-img {
+  height: 70px;
+  width: 70px;
+  display: block;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-right: 25px;
+}
+
+.blog-author-img img {
+  width: 100%;
+}
+
+.blog-author-content {
+  flex-shrink: 100;
+}
+
+.blog-author-content h6 {
+  line-height: 28px;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.blog-author-content p {
+  font-size: 14px;
+  line-height: 26px;
+  margin-bottom: 0;
+  max-width: 505px;
+}
+
