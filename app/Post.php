@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -15,6 +16,14 @@ class Post extends Model
         'content',
         'status',
         'user_id',
+    ];
+
+    /**
+     * 
+     */
+    protected $appends = [
+        'excerpt',
+        'human_timestamp',
     ];
 
     /**
@@ -48,4 +57,21 @@ class Post extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+
+    /**
+     * 
+     */
+    public function getExcerptAttribute()
+    {
+        return Str::limit(strip_tags($this->content), 200);
+    }
+
+    /**
+     * 
+     */
+    public function getHumanTimestampAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
 }

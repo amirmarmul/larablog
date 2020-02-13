@@ -19,6 +19,8 @@ Route::get('/posts', 'Front\PostController@index');
 
 Route::get('/posts/{slug}', 'Front\PostController@show');
 
+Route::get('/tags/{slug}', 'Front\TagController@show');
+
 Auth::routes();
 
 Route::middleware('auth')->prefix('back')->group(function () {
