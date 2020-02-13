@@ -28,4 +28,13 @@ require('./bootstrap');
         width: 'style',
     });
 
+    /**
+     * 
+     */
+    $('.editor').trumbowyg({
+        svgPath: '/images/trumbowyg.svg',
+        autogrow: true,
+        removeformatPasted: true,
+    });
+
 })();

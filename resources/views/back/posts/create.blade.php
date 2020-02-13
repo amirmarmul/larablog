@@ -50,7 +50,7 @@
 
             <div class="form-group">
                 <label>{{ __('Content') }}</label>
-                <textarea name="content" rows="10" class="form-control @error('content') is-invalid @enderror" placeholder="{{ __('Content') }}">{{ old('slug') }}</textarea>
+                <textarea name="content" rows="10" class="editor form-control @error('content') is-invalid @enderror" placeholder="{{ __('Content') }}">{{ old('content') }}</textarea>
                 @error('content') <div class="invalid-feedback">{{ $message }}</div> @enderror
             </div>
         </div>
