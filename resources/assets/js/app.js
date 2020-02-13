@@ -12,6 +12,15 @@ require('./bootstrap');
  */
 (function() {
     /**
+     * Ajax CSRF Token
+     */
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-Token': $('meta[name=csrf-token]').attr('content'),
+        }
+    });
+
+    /**
      * Initialize datatable
      */
     $('.datatable').DataTable({
@@ -32,9 +41,34 @@ require('./bootstrap');
      * 
      */
     $('.editor').trumbowyg({
-        svgPath: '/images/trumbowyg.svg',
         autogrow: true,
-        removeformatPasted: true,
+        svgPath: '/images/trumbowyg.svg',
+        btnsDef: {
+            image: {
+                dropdown: ['insertImage', 'upload'],
+                ico: 'insertImage'
+            }
+        },
+        btns: [
+            ['viewHTML'],
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['image'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen']
+        ],
+        plugins: {
+            upload: {
+                serverPath: '/api/trumbowyg',
+                urlPropertyName: 'data',
+                fileFieldName: 'file',
+            }
+        }
     });
 
 })();

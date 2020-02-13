@@ -8,3 +8,4 @@ require('datatables.net-responsive');
 require('datatables.net-responsive-bs4');
 require('select2');
 require('trumbowyg');
+require('trumbowyg/plugins/upload/trumbowyg.upload');

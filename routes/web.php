@@ -42,3 +42,8 @@ Route::middleware('auth')->prefix('back')->group(function () {
 
     Route::resource('settings', 'Back\SettingController')->only(['index', 'update']);
 });
+
+Route::prefix('api')->group(function () {
+
+    Route::post('trumbowyg', 'Api\TrumbowygController@upload');
+});

@@ -27,7 +27,7 @@
 
         <div class="form-group">
             <label>{{ __('Content') }}</label>
-            <textarea name="content" rows="10" class="form-control" placeholder="{{ __('Content') }}" readonly>{{ $post->content }}</textarea>
+            <textarea name="content" rows="10" class="editor form-control" placeholder="{{ __('Content') }}" disabled>{{ $post->content }}</textarea>
         </div>
     </div>
 </div>
